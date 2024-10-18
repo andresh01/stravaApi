@@ -109,6 +109,7 @@ html {
 }
 
 .containerInfoSegmento {
+    display: none;
     width: 300px;
     margin: 10px;
     background-color: #33b5e5;
@@ -177,9 +178,13 @@ html {
 
 #datoTime {
     display: flex;
+    flex-direction: column;
 }
 #datoTime input{
     width: 35px;
+}
+#timeContainer {
+    display: flex;
 }
 
 #list {
@@ -187,6 +192,7 @@ html {
 }
 
 #info {
+    display: none;
     width: 300px;
     background-color: #33b5e5;
     border-radius: 5px;

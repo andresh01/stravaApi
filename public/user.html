@@ -38,7 +38,6 @@
                 <div id="segmentName"></div>
                 <div>
                     <ul id="list">
-                        
                     </ul>
                 </div>
                 <div class="containerProfile">
@@ -47,21 +46,29 @@
             </div>
             <div id="info">
                 <div id="datoTime">
-                    <label> Tiempo a subir el puerto:</label>
-                    <input type="number" min="0" id="hour" value="0">
-                    <input type="number" min="0" id="minutes">
+                    <div><h2>Tiempo a subir el puerto:</h2></div>
+                    <div id="timeContainer">
+                        <div>
+                            <p>Hora:</p>
+                            <input type="number" min="0" id="hour" value="0">
+                        </div>
+                        <div>
+                            <p>Minutos:</p>
+                            <input type="number" min="0" id="minutes">
+                        </div>
+                    </div>
                 </div>
                 <div id="datoW_kg">
-                    <!-- <label for="">W/kg</label>
-                    <input type="text" min="0" id="w_kg" style="width: 100px;" value=""> -->
+                    <p>w/kg: </p>
+                    <p id="valw_kg"> </p>
                 </div>
                 <div id="datoW">
-                    <!-- <label for="">Vatios necesarios</label>
-                    <input type="text" min="0" id="watts" style="width: 100px;" value=""> -->
+                    <p>watts: </p>
+                    <p id="watts"> </p>
                 </div>
                 <div id="datoVam">
-                    <!-- <label for="">VAM</label>
-                    <input type="text" min="0" id="vam" style="width: 100px;" value=""> -->
+                    <p>vam: </p>
+                    <p id="vam"> </p>
                 </div>
             </div>
             <div>

@@ -42,7 +42,7 @@ async function cargarSegmentosFavoritos() {
     try {
         const response = await fetch('/api/userSegmentsStarred');
         const result = await response.json();
-        console.log(result);
+        
         var table = document.querySelector(".tableSegments");
         result.forEach(value => {
         var tr = document.createElement("tr");
@@ -51,6 +51,8 @@ async function cargarSegmentosFavoritos() {
                         </tr>`;
         table.appendChild(tr);
         })
+
+        
         /*window.location=user.html?segmento=${value.id} var select = document.querySelector("#climbs")
         result.forEach(element => {
             var option = document.createElement("option");
@@ -81,7 +83,6 @@ async function infoSegmento(id) {
         average_grade = result.average_grade
         pr = secondsToString(result.athlete_segment_stats.pr_elapsed_time)
 
-console.log(result)
         document.getElementById('segmentName').innerText = result.name;
         
         let ul = document.getElementById('list');
@@ -106,57 +107,8 @@ console.log(result)
 
         let imgProfile = document.getElementById('profile');
         imgProfile.src = result.elevation_profile
-
-        /* let time = document.getElementById('datoTime');
-        time.innerHTML = ''; */
-        /* let timelabel = document.createElement('label');
-        let hourInput = document.createElement('input');
-        hourInput.setAttribute('type', 'number');
-        hourInput.setAttribute('min', '0');
-        hourInput.setAttribute('id', 'hour');
-        hourInput.setAttribute('value', 0);
-        hourInput.setAttribute('style', 'width:30px');
-        let mininput = document.createElement('input');
-        mininput.setAttribute('type', 'number');
-        mininput.setAttribute('min', '0');
-        mininput.setAttribute('max', '60');
-        mininput.setAttribute('id', 'minutes');
-
-        timelabel.innerHTML = "Tiempo a subir el puerto: ";
-        time.appendChild(timelabel);
-        time.appendChild(hourInput);
-        time.appendChild(mininput); */
-
-        let w_kg = document.getElementById('datoW_kg');
-        w_kg.innerHTML = '';
-        let w_kgp = document.createElement('p');
-        let valuew_kg = document.createElement('p');
-        valuew_kg.setAttribute('id', 'valw_kg');
-
-        w_kgp.innerHTML = `w/kg: `
-        w_kg.appendChild(w_kgp);
-        w_kg.appendChild(valuew_kg);
-
-
-        let w = document.getElementById('datoW');
-        w.innerHTML = '';
-        let wlabel = document.createElement('p');
-        let winput = document.createElement('p');
-        winput.setAttribute('id', 'watts');
-
-        wlabel.innerHTML = "watts: ";
-        w.appendChild(wlabel);
-        w.appendChild(winput);
-
-        let vam = document.getElementById('datoVam');
-        vam.innerHTML = '';
-        let vamlabel = document.createElement('p');
-        let vaminput = document.createElement('p');
-        vaminput.setAttribute('id', 'vam');
-
-        vamlabel.innerHTML = "vam: ";
-        vam.appendChild(vamlabel);
-        vam.appendChild(vaminput);
+        document.querySelector(".containerInfoSegmento").style.display = 'block';
+        document.getElementById("info").style.display = 'block';
 
         let minutes = document.getElementById('minutes');
         let hour = document.getElementById('hour');
@@ -173,10 +125,6 @@ console.log(result)
     }
 }
 
-/* 
-minutes.addEventListener('input', function(){
-    watts();
-}) */
 
 function watts(){
     
@@ -187,7 +135,7 @@ function watts(){
     let minuts = (parseInt(minutes.value) || 0);
     let hr = (parseInt(hour.value) || 0);
     let time = (hr*60)+minuts
-console.log(time)
+
     let vam = time == 0 ? '' : (elevation_gain/(time/60)).toFixed(0);
     let w;
 
