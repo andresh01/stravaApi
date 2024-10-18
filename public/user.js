@@ -82,6 +82,7 @@ async function infoSegmento(id) {
         elevation_gain = parseInt(result.elevation_high - result.elevation_low);
         average_grade = result.average_grade
         pr = secondsToString(result.athlete_segment_stats.pr_elapsed_time)
+        pr_date = result.athlete_segment_stats.pr_date
 
         document.getElementById('segmentName').innerText = result.name;
         
@@ -95,30 +96,34 @@ async function infoSegmento(id) {
 
         li1.textContent = `Distancia: ${result.distance} mts`; // Añadir el texto al li
         li2.textContent = `Grado Promedio: ${result.average_grade} %`; // Añadir el texto al li
-        li3.textContent = `Categoria del Puerto: ${result.climb_category} `; // Añadir el texto al li
         li4.textContent = `Desnivel Positivo: ${elevation_gain} mts`; // Añadir el texto al li
         li5.textContent = `Tu PR: ${pr} seg`; // Añadir el texto al li
+        li3.textContent = `Fecha PR: ${pr_date} `; // Añadir el texto al li
         
         ul.appendChild(li1); 
         ul.appendChild(li2); 
-        ul.appendChild(li3); 
         ul.appendChild(li4); 
+        ul.appendChild(li3); 
         ul.appendChild(li5); 
 
         let imgProfile = document.getElementById('profile');
         imgProfile.src = result.elevation_profile
         document.querySelector(".containerInfoSegmento").style.display = 'block';
-        document.getElementById("info").style.display = 'block';
+        info = document.getElementById("info");
+        info.style.display = 'block';
 
         let minutes = document.getElementById('minutes');
+        minutes.value = "";
         let hour = document.getElementById('hour');
+        hour.value = 0;
+
         hour.addEventListener('input', function(){
             watts();
         })
         minutes.addEventListener('input', function(){
             watts();
         })
-        //watts();
+        watts();
     } catch (error) {
         
         console.error('Error al cargar la información del segmento:', error);
