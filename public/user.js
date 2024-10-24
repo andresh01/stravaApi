@@ -2,6 +2,12 @@ var weight = 0;
 var elevation_gain = 0;
 var average_grade = 0; 
 
+// Cargar los datos del usuario al cargar la página
+document.addEventListener('DOMContentLoaded',function(){
+    cargarDatosUsuario();
+    
+})
+
 // Función para cargar la información del usuario
 async function cargarDatosUsuario() {
     try {
@@ -29,14 +35,13 @@ async function cargarDatosUsuario() {
 
         let imgProfileUser = document.getElementById('picture');
         imgProfileUser.src = result.profile
-
+        cargarSegmentosFavoritos()
     } catch (error) {
         window.location = 'index.html'
         console.error('Error al cargar la información del usuario:', error);
     }
 }
-// Cargar los datos del usuario al cargar la página
-cargarDatosUsuario();
+
 
 async function cargarSegmentosFavoritos() {
     try {
@@ -72,7 +77,7 @@ async function cargarSegmentosFavoritos() {
         console.error('Error al cargar la información de los segmentos:', error);
     }
 }
-cargarSegmentosFavoritos()
+
 
 async function infoSegmento(id) {
     try {
