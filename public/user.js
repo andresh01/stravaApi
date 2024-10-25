@@ -148,8 +148,8 @@ function watts(){
 
     let vam = time == 0 ? '' : (elevation_gain/(time/60)).toFixed(0);
     let w;
-
-    w_kg = time == 0 ? '' : ((vam)/(((20+parseFloat(average_grade))/10)*100)).toFixed(1);
+    let factor_grado = 2+(average_grade/10);
+    w_kg = time == 0 ? '' : ((vam)/(factor_grado*100)).toFixed(3);
     w = w_kg*weight;
 
     document.getElementById('valw_kg').innerHTML = w_kg ;
