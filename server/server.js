@@ -98,7 +98,7 @@ app.get('/api/userSegmentsStarred', async (req, res) => {
 app.get('/api/segmentInfo', async (req, res) => {
 
     if (!accessToken) {
-        return res.status(401).json({ error: 'Usuario no autenticado' });
+        return res.status(401).json({ status_code: 401,error: 'Usuario no autenticado' });
     }
 
     try {

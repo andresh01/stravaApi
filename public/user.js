@@ -83,7 +83,9 @@ async function infoSegmento(id) {
     try {
         const response = await fetch(`/api/segmentInfo?id=${id}`);
         const result = await response.json();
-
+        if(result.status_code === 401){
+            window.location = 'index.html'
+        }
         elevation_gain = parseInt(result.elevation_high - result.elevation_low);
         average_grade = result.average_grade
         pr = secondsToString(result.athlete_segment_stats.pr_elapsed_time)
@@ -130,9 +132,6 @@ async function infoSegmento(id) {
         })
         watts();
     } catch (error) {
-        if(error == 401){
-            window.location = 'index.html'
-        }
         console.error('Error al cargar la información del segmento:', error);
     }
 }
