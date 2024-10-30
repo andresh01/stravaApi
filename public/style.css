@@ -23,7 +23,6 @@ body {
 }
 
 .boton {
-    
     padding: 10px 20px;
     background-color: #fc5200;
     color: white;
@@ -31,6 +30,10 @@ body {
     cursor: pointer;
     font-size: 16px;
     border-radius: 15px;
+}
+
+.boton button{
+    background-color: #fc5200;
 }
 
 .hidden {
