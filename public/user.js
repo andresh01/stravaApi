@@ -130,7 +130,9 @@ async function infoSegmento(id) {
         })
         watts();
     } catch (error) {
-        
+        if(error == 401){
+            window.location = 'index.html'
+        }
         console.error('Error al cargar la información del segmento:', error);
     }
 }
