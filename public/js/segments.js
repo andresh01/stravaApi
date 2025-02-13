@@ -33,7 +33,7 @@ async function cargarDatosUsuario() {
     div.appendChild(kg);
 
     let imgProfileUser = document.getElementById("picture");
-    /* imgProfileUser.src = result.profile */
+    imgProfileUser.src = result.profile
     cargarSegmentosFavoritos();
   } catch (error) {
     window.location = "index.html";
