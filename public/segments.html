@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información de Usuario</title>
     <link rel="shortcut icon" href="./img/mountain_blue.png">
-    <link rel="stylesheet" href="user.css">
+    <link rel="stylesheet" href="./css/user.css">
 </head>
 <body>
     <header class="header">
@@ -53,7 +53,7 @@
                     <div><h2>Tiempo a subir el puerto:</h2></div>
                     <div id="timeContainer">
                         <div>
-                            <p>Hora: <input type="number" min="0" id="hour" value="0"></p>
+                            <p>Hora: <input type="number" min="0" id="hour" value="" placeholder="0"></p>
                         </div>
                         <div>
                             <p>Minutos: <input type="number" min="0" id="minutes"></p>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div id="datoW_kg">
-                    <div><h2>w/kg: <span id="valw_kg"> </span></h2></div>
+                    <div><h2>w/kg: <input type="text" id="valw_kg" value=""></h2></div>
                 </div>
                 <div id="datoW">
                     <div><h2>watts: <span id="watts"> </span></h2></div>
@@ -76,7 +76,7 @@
         </div>
        
     </main>
-    <script src="user.js"></script>
+    <script src="js/segments.js"></script>
 </body>
 </html>
 <style>

@@ -156,6 +156,10 @@ html {
     display: flex;
 }
 
+#datoW_kg input{
+    width: 30px;
+}
+
 #list {
     text-align: justify;
 }

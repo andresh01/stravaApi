@@ -36,7 +36,7 @@ app.get('/auth/callback', async (req, res) => {
         //req.session.accessToken = accessToken;
         
         // Redirigir al cliente con la información del usuario y los segmentos favoritos
-        res.redirect(`/user.html`);
+        res.redirect(`/segments.html`);
     } catch (error) {
         console.error('Error al obtener el token de acceso:', error);
         res.status(500).send('Error autenticando con Strava.');
