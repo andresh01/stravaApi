@@ -33,7 +33,7 @@ async function cargarDatosUsuario() {
     div.appendChild(kg);
 
     let imgProfileUser = document.getElementById("picture");
-    imgProfileUser.src = result.profile
+    imgProfileUser.src = result.profile;
     cargarSegmentosFavoritos();
   } catch (error) {
     window.location = "index.html";
@@ -155,16 +155,21 @@ function watts() {
 }
 
 function segmentTime() {
-  let wkg = document.getElementById("valw_kg").value || 1;
+  let wkg = document.getElementById("valw_kg").value || 0;
   let factor_grado = 2 + average_grade / 10;
   w = parseFloat(wkg) * weight;
-  let timeminutes = 0;
-
- 
-timeminutes = (parseInt(elevation_gain) * 60) / (wkg * factor_grado * 100);
+  let timeminutes = wkg > 0 ? (parseInt(elevation_gain) * 60) / (wkg * factor_grado * 100) : 0;
   
-  document.getElementById("minutes").value = timeminutes.toFixed(0);
+  let hour = parseInt(timeminutes/60);
+  let minutes = parseInt(timeminutes%60);
+  console.log(timeminutes)
+  
+  let vam = timeminutes == 0 ? 0 : (elevation_gain / (timeminutes / 60)).toFixed(0);
+  
+  document.getElementById("hour").value = hour;
+  document.getElementById("minutes").value = minutes;
   document.getElementById("watts").innerHTML = w.toFixed(1);
+  document.getElementById("vam").innerHTML = vam;
 }
 
 function secondsToString(seconds) {
